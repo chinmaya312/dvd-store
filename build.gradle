@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+
+repositories {
+  jcenter()
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.12'
+}
+
+dependencies {
+
+  //validation
+  compile 'org.hibernate:hibernate-validator:5.2.4.Final'
+  compile 'javax.el:javax.el-api:3.0.0'
+
+  // logging
+  compile 'org.apache.logging.log4j:log4j-api:2.5'
+  compile 'org.apache.logging.log4j:log4j-core:2.5'
+
+  //test
+  testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+}
