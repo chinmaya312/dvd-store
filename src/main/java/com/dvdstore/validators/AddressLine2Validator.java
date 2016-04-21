@@ -27,11 +27,14 @@ public class AddressLine2Validator implements ConstraintValidator<ValidAddressLi
     }
 
     if(!isValid) {
-      context.disableDefaultConstraintViolation();
-      context.buildConstraintViolationWithTemplate(
-          "Address Line 2 should be empty if Address Line 1 is not entered"
-      ).addPropertyNode("line2")
-       .addConstraintViolation();
+      if(context != null) {
+        context.disableDefaultConstraintViolation();
+        context.buildConstraintViolationWithTemplate(
+            "Address Line 2 should be empty if Address Line 1 is not entered"
+        ).addPropertyNode("line2")
+         .addConstraintViolation();
+      }
+      
     }
 
     return isValid;
